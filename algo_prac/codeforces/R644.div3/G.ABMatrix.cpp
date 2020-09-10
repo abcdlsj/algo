@@ -11,7 +11,5 @@ int main () {
             cout << "NO" << endl;
             continue;
         }
-
-        +
     }
 }
