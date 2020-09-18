@@ -56,31 +56,6 @@ bool judge_arr(vector<int> arr) {
   return is_sorted(arr.begin(), arr.end());
 }
 
-class Solution {
-public:
-  bool canPartition(vector<int> &nums) {
-    int n = nums.size(), sum = accumulate(nums.begin(), nums.end(), 0);
-    if (sum % 2)
-      return false;
-    sum = sum / 2;
-    vector<vector<int>> dp(n + 1, vector<int>(sum + 1));
-    for (int i = 0; i <= n; i++) {
-      dp[i][0] = true;
-    }
-
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= sum; j++) {
-        if (j < nums[i - 1]) {
-          dp[i][j] = dp[i - 1][j];
-        } else {
-          dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
-        }
-      }
-    }
-
-    return dp[n][sum];
-  }
-};
 int main() {
   vector<int> arr = {1, 2, 3, 4, 5, 6, 12, 11, 7, 6};
   if (judge_arr(arr)) {
