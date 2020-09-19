@@ -1,6 +1,6 @@
 /*
- * @Author: abcdlsj 
- * @Date: 2020-08-26 20:40:46 
+ * @Author: abcdlsj
+ * @Date: 2020-08-26 20:40:46
  * @Last Modified by: abcdlsj
  * @Last Modified time: 2020-08-26 20:50:15
  */
@@ -10,9 +10,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main () {
-  string s1, s2;
-  while (cin >> s1 >> s2) {
-    
-  }  
+int main() {
+    string s1, s2;
+    while (cin >> s1 >> s2) {
+    }
 }
