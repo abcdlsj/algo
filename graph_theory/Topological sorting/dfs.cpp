@@ -3,25 +3,39 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> cnt;
-    vector<vector<int>> adj;
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        cnt.resize(numCourses, -1);
-        adj.resize(numCourses);
+        vector<vector<int>> edges(numCourses);
 
-        for (auto& e : prerequisites) adj[e[1]].push_back(e[0]);
+        for (auto& e : prerequisites) {
+            edges[e[0]].push_back(e[1]);
+        }
+        vector<int> vis(numCourses, 0);
         for (int i = 0; i < numCourses; i++) {
-            if (cnt[i] == -1) {
-                if (!dfs())
+            if (!dfs(edges, vis, i)) {
+                return false;
             }
         }
+
+        return true;
     }
-    bool dfs(int u) {
-        cnt[u] = -1;
-        for (auto v : adj[u]) {
-            if (cnt[v] < 0) {
+
+    // vis[i] == -1 // 代表之前的 dfs 判断过，走这个点的 dfs 不会出现环
+    // vis[i] == 1 // 代表当前 dfs 访问过这个点，出现环
+    bool dfs(const vector<vector<int>>& edges, vector<int>& vis, int i) {
+        if (vis[i] == -1) return true;
+        if (vis[i] == 1) return false;
+        vis[i] = 1;
+        for (auto& e : edges[i]) {
+            if (!dfs(edges, vis, e)) {
                 return false;
-            } else if ()
+            }
         }
+
+        vis[i] = -1;
+        return true;
     }
 };
+
+int main () {
+
+}
