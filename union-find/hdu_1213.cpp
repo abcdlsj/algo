@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int cnt;
@@ -12,7 +13,8 @@ int findset(int x) {
 }
 void unionset(int a, int b) {
     int x = findset(a), y = findset(b);
-    if (x == y) return;
+    if (x == y)
+        return;
     if (ranks[x] > ranks[y]) {
         swap(x, y);
     }
@@ -30,7 +32,8 @@ int main() {
         father.resize(N + 1);
         ranks.resize(N + 1, 1);
         cnt = N;
-        for (int i = 0; i <= N; i++) father[i] = i;
+        for (int i = 0; i <= N; i++)
+            father[i] = i;
         for (int i = 0; i < M; i++) {
             int a, b;
             cin >> a >> b;

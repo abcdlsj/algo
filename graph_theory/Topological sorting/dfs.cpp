@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+   public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         vector<vector<int>> edges(numCourses);
 
@@ -36,6 +36,4 @@ public:
     }
 };
 
-int main () {
-
-}
+int main() {}

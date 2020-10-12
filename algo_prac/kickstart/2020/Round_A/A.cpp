@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main () {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int T; cin >> T;
+    int T;
+    cin >> T;
     int time = 1;
     while (time <= T) {
         int N, B;
@@ -20,7 +21,7 @@ int main () {
                 ans++;
                 B -= e;
             }
-        }  
+        }
         cout << "Case #" << time << ": " << ans << endl;
         time++;
     }

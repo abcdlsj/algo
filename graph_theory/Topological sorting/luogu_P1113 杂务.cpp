@@ -2,12 +2,13 @@
 using namespace std;
 #define ll long long
 
-int main () {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    int n; cin >> n;
-    
+
+    int n;
+    cin >> n;
+
     vector<int> costs(n + 1);
     vector<int> indegree(n + 1, 0);
     vector<vector<int>> G(n + 1);
@@ -22,7 +23,7 @@ int main () {
             indegree[i]++;
         }
     }
-    
+
     queue<int> que;
     for (int i = 1; i <= n; i++) {
         if (indegree[i] == 0) {
@@ -32,7 +33,8 @@ int main () {
     }
 
     while (!que.empty()) {
-        int cur = que.front(); que.pop();
+        int cur = que.front();
+        que.pop();
         for (auto& e : G[cur]) {
             indegree[e]--;
             if (indegree[e] == 0) {
