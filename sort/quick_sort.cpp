@@ -87,8 +87,10 @@ void quickSort(int* arr, int left, int right) {
 int partation(std::vector<int> &arr, int begin, int end) {
     int cpr = arr[end], le = begin, ri = end - 1;
     while (le < ri) {
-        while (le < ri && arr[le] < cpr) le++;
-        while (le < ri && arr[ri] >= cpr) ri--;
+        while (le < ri && arr[le] < cpr)
+            le++;
+        while (le < ri && arr[ri] >= cpr)
+            ri--;
         std::swap(arr[le], arr[ri]);
     }
     if (arr[le] >= cpr) {
@@ -101,7 +103,8 @@ int partation(std::vector<int> &arr, int begin, int end) {
 }
 
 void quickSort1Helper(std::vector<int> &arr, int begin, int end) {
-    if (begin >= end) return;
+    if (begin >= end)
+        return;
     int par = partation(arr, begin, end);
     quickSort1Helper(arr, begin, par - 1);
     quickSort1Helper(arr, par + 1, end);
@@ -114,9 +117,12 @@ void quickSort1(std::vector<int> &arr) {
 // 三数取中快排
 void pivot(std::vector<int> &arr, int begin, int end) {
     int mid = begin + (end - begin) / 2;
-    if (arr[begin] > arr[mid]) std::swap(arr[begin], arr[mid]);
-    if (arr[begin] > arr[end]) std::swap(arr[begin], arr[end]);
-    if (arr[mid] > arr[end]) std::swap(arr[mid], arr[end]);
+    if (arr[begin] > arr[mid])
+        std::swap(arr[begin], arr[mid]);
+    if (arr[begin] > arr[end])
+        std::swap(arr[begin], arr[end]);
+    if (arr[mid] > arr[end])
+        std::swap(arr[mid], arr[end]);
 
     std::swap(arr[mid], arr[end - 1]);
 }
@@ -125,8 +131,10 @@ int partation2(std::vector<int> &arr, int begin, int end) {
     pivot(arr, begin, end);
     int cpr = arr[end - 1], le = begin, ri = end - 1;
     while (le < ri) {
-        while (le < ri && arr[le] < cpr) le++;
-        while (le < ri && arr[ri] >= cpr) ri--;
+        while (le < ri && arr[le] < cpr)
+            le++;
+        while (le < ri && arr[ri] >= cpr)
+            ri--;
         std::swap(arr[le], arr[ri]);
     }
 
@@ -138,7 +146,8 @@ int partation2(std::vector<int> &arr, int begin, int end) {
 }
 
 void quickSort2Helper(std::vector<int> &arr, int begin, int end) {
-    if (begin >= end) return;
+    if (begin >= end)
+        return;
     int par = partation2(arr, begin, end);
     quickSort2Helper(arr, begin, par - 1);
     quickSort2Helper(arr, par + 1, end);

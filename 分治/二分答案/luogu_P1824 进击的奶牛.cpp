@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool check(vector<int>& pos, int dis, int c) {
+bool check(vector<int> &pos, int dis, int c) {
     int count = 1, pre = pos[0];
     for (int i = 1; i < pos.size(); i++) {
         if (pos[i] - pre >= dis) {
@@ -11,17 +11,18 @@ bool check(vector<int>& pos, int dis, int c) {
         if (count >= c) {
             return true;
         }
-    } 
+    }
     return false;
 }
-int main () {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
     int N, C;
     while (cin >> N >> C) {
         vector<int> pos(N);
-        for (int i = 0; i < N; i++) cin >> pos[i];
+        for (int i = 0; i < N; i++)
+            cin >> pos[i];
         sort(pos.begin(), pos.end());
 
         int le = 0, ri = pos.back() - pos[0];

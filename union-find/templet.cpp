@@ -2,21 +2,30 @@
 using namespace std;
 
 int cnt;
-vector<int> father;
-vector<int> ranks;
-int findset(int x) {
-    if (x != father[x]) {
-        father[x] = findset(father[x]);
+vector<int> fa;
+vector<int> ra;
+
+int find(int x) {
+    if (x != fa[x]) {
+        fa[x] = find(fa[x]);
     }
-    return father[x];
+
+    return fa[x];
 }
+
 void unionset(int a, int b) {
-    int x = findset(a), y = findset(b);
-    if (x == y) return;
-    if (ranks[x] > ranks[y]) {
+    int x = find(a), y = find(b);
+    if (x == y)
+        return;
+    if (ra[x] > ra[y]) {
         swap(x, y);
     }
-    father[x] = y;
-    ranks[y] += ranks[x];
+    ra[y] += ra[x];
+    fa[x] = fa[y];
     cnt--;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 }

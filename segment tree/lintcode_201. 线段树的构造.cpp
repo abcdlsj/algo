@@ -3,7 +3,7 @@ using namespace std;
 
 // Definition of SegmentTreeNode:
 class SegmentTreeNode {
-   public:
+  public:
     int start, end;
     SegmentTreeNode *left, *right;
     SegmentTreeNode(int start, int end) {
@@ -13,17 +13,19 @@ class SegmentTreeNode {
 };
 
 class Solution {
-   public:
+  public:
     /*
      * @param start: start value.
      * @param end: end value.
      * @return: The root of Segment Tree.
      */
-    SegmentTreeNode* build(int start, int end) {
+    SegmentTreeNode *build(int start, int end) {
         // write your code here
-        if (start > end) return nullptr;
-        SegmentTreeNode* root = new SegmentTreeNode(start, end);
-        if (start == end) return root;
+        if (start > end)
+            return nullptr;
+        SegmentTreeNode *root = new SegmentTreeNode(start, end);
+        if (start == end)
+            return root;
         root->left = build(start, (start + end) / 2);
         root->right = build((start + end) / 2 + 1, end);
         return root;

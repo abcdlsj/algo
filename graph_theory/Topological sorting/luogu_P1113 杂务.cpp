@@ -35,7 +35,7 @@ int main() {
     while (!que.empty()) {
         int cur = que.front();
         que.pop();
-        for (auto& e : G[cur]) {
+        for (auto &e : G[cur]) {
             indegree[e]--;
             if (indegree[e] == 0) {
                 que.push(e);

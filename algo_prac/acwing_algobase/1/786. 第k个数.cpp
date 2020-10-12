@@ -4,8 +4,10 @@
 int partation(std::vector<int> &arr, int begin, int end) {
     int cpr = arr[end], le = begin, ri = end - 1;
     while (le < ri) {
-        while (le < ri && arr[le] < cpr) le++;
-        while (le < ri && arr[ri] >= cpr) ri--;
+        while (le < ri && arr[le] < cpr)
+            le++;
+        while (le < ri && arr[ri] >= cpr)
+            ri--;
         std::swap(arr[le], arr[ri]);
     }
     if (arr[le] >= cpr) {
@@ -18,11 +20,12 @@ int partation(std::vector<int> &arr, int begin, int end) {
 }
 
 void quickSort1Helper(std::vector<int> &arr, int begin, int end, int k) {
-    if (begin >= end) return;
+    if (begin >= end)
+        return;
     int par = partation(arr, begin, end);
     quickSort1Helper(arr, begin, par - 1, k);
     if (par > k) {
-        return ;
+        return;
     } else {
         quickSort1Helper(arr, par + 1, end, k);
     }
@@ -39,7 +42,8 @@ int main() {
     int n, k;
     std::cin >> n >> k;
     std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) std::cin >> arr[i];
+    for (int i = 0; i < n; i++)
+        std::cin >> arr[i];
     quickSort1(arr, k - 1);
     std::cout << arr[k - 1];
 }

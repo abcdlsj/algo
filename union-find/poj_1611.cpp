@@ -31,7 +31,8 @@ int main() {
 
     int n, m;
     while (cin >> n >> m) {
-        if (m == 0 && n == 0) break;
+        if (m == 0 && n == 0)
+            break;
         fa.resize(n);
         for (int i = 0; i < n; i++)
             fa[i] = i;

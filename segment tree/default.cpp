@@ -5,7 +5,4 @@ using namespace std;
 
 int tree[MAX];
 
-
-int main () {
-
-}
+int main() {}

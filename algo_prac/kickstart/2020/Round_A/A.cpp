@@ -12,11 +12,12 @@ int main() {
         int N, B;
         cin >> N >> B;
         vector<int> costs(N, 0);
-        for (int i = 0; i < N; i++) cin >> costs[i];
+        for (int i = 0; i < N; i++)
+            cin >> costs[i];
 
         sort(costs.begin(), costs.end());
         int ans = 0;
-        for (auto& e : costs) {
+        for (auto &e : costs) {
             if (B >= e) {
                 ans++;
                 B -= e;

@@ -5,11 +5,14 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int m, n; cin >> m >> n; 
+    int m, n;
+    cin >> m >> n;
     vector<int> arr(m);
     vector<int> grades(n);
-    for (int i = 0; i < m; i++) cin >> arr[i];
-    for (int j = 0; j < n; j++) cin >> grades[j];
+    for (int i = 0; i < m; i++)
+        cin >> arr[i];
+    for (int j = 0; j < n; j++)
+        cin >> grades[j];
 
     long long ans = 0;
     sort(arr.begin(), arr.end());

@@ -2,8 +2,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int maxDistance(vector<int>& position, int m) {
+  public:
+    int maxDistance(vector<int> &position, int m) {
         sort(position.begin(), position.end());
         int le = 0, ri = position.back() - position[0];
 
@@ -18,13 +18,14 @@ public:
 
         return le;
     }
-    bool check(vector<int>& position, int dis, int m) {
+    bool check(vector<int> &position, int dis, int m) {
         int count = 1, prepos = position[0];
         for (int i = 1; i < position.size(); i++) {
             if (position[i] - prepos >= dis) {
                 prepos = position[i];
                 count++;
-                if (count >= m) return true;
+                if (count >= m)
+                    return true;
             }
         }
 

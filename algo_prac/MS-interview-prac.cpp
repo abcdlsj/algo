@@ -10,55 +10,55 @@ using namespace std;
 // 条件2：如果该数组中可以找到一个连续的子数组使得反转这个子数组后整个数组变为升序，那么该条件满足。
 
 bool judge_arr(vector<int> arr) {
-  // 条件 1
-  // int le = -1, ri = -1;
-  // for (int i = 1; i < arr.size(); i++) {
-  //   if (arr[i - 1] > arr[i]) {
-  //     if (le == -1) {
-  //       le = i - 1;
-  //     } else if (ri == -1) {
-  //       ri = i;
-  //     } else {
-  //       return false;
-  //     }
-  //   }
-  // }
+    // 条件 1
+    // int le = -1, ri = -1;
+    // for (int i = 1; i < arr.size(); i++) {
+    //   if (arr[i - 1] > arr[i]) {
+    //     if (le == -1) {
+    //       le = i - 1;
+    //     } else if (ri == -1) {
+    //       ri = i;
+    //     } else {
+    //       return false;
+    //     }
+    //   }
+    // }
 
-  // swap(arr[le], arr[ri]);
-  // return is_sorted(arr.begin(), arr.end());
+    // swap(arr[le], arr[ri]);
+    // return is_sorted(arr.begin(), arr.end());
 
-  // 条件 2
-  int le = -1, ri = -1;
+    // 条件 2
+    int le = -1, ri = -1;
 
-  for (int i = 0; i < arr.size() - 1; i++) {
-    if (arr[i - 1] > arr[i]) {
-      if (le == -1) {
-        le = i - 1;
-      } else if (arr[i + 1] > arr[i]) {
-        if (ri == -1) {
-          ri = i;
-        } else {
-          return false;
+    for (int i = 0; i < arr.size() - 1; i++) {
+        if (arr[i - 1] > arr[i]) {
+            if (le == -1) {
+                le = i - 1;
+            } else if (arr[i + 1] > arr[i]) {
+                if (ri == -1) {
+                    ri = i;
+                } else {
+                    return false;
+                }
+            }
         }
-      }
     }
-  }
 
-  if (ri == -1) {
-    ri = arr.size() - 1;
-  }
+    if (ri == -1) {
+        ri = arr.size() - 1;
+    }
 
-  while (le < ri) {
-    swap(arr[le], arr[ri]);
-    le++, ri--;
-  }
+    while (le < ri) {
+        swap(arr[le], arr[ri]);
+        le++, ri--;
+    }
 
-  return is_sorted(arr.begin(), arr.end());
+    return is_sorted(arr.begin(), arr.end());
 }
 
 int main() {
-  vector<int> arr = {1, 2, 3, 4, 5, 6, 12, 11, 7, 6};
-  if (judge_arr(arr)) {
-    cout << "yes" << endl;
-  }
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 12, 11, 7, 6};
+    if (judge_arr(arr)) {
+        cout << "yes" << endl;
+    }
 }

@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     /**
      * @param pages: an array of integers
      * @param k: An integer
@@ -10,9 +10,11 @@ public:
      */
     int copyBooks(vector<int> &pages, int k) {
         // write your code here
-        if (pages.size() == 0) return 0;
-        int le = *max_element(pages.begin(), pages.end()), ri = accumulate(pages.begin(), pages.end(), 0);
-        
+        if (pages.size() == 0)
+            return 0;
+        int le = *max_element(pages.begin(), pages.end()),
+            ri = accumulate(pages.begin(), pages.end(), 0);
+
         while (le < ri) {
             int mid = le + (ri - le) / 2;
             cout << le << " " << ri << " " << mid << endl;
@@ -22,10 +24,10 @@ public:
                 le = mid + 1;
             }
         }
-        
+
         return le;
     }
-    bool check(const vector<int>& pages, int time, int k) {
+    bool check(const vector<int> &pages, int time, int k) {
         int cur = 1, sum = 0;
         for (int i = 0; i < pages.size(); i++) {
             sum += pages[i];
@@ -34,7 +36,7 @@ public:
                 cur++;
             }
         }
-        
+
         return cur <= k;
     }
 };

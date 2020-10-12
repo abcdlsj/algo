@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     /**
      * @param nums: a list of integers
      * @param m: an integer
@@ -28,7 +28,8 @@ public:
         // }
 
         // return dp[m - 1][n - 1];
-        int sum = accumulate(nums.begin(), nums.end(), 0), max_e = *max_element(nums.begin(), nums.end());
+        int sum = accumulate(nums.begin(), nums.end(), 0),
+            max_e = *max_element(nums.begin(), nums.end());
         int ri = sum, le = max_e;
         while (le < ri) {
             int mid = le + (ri - le) / 2;
@@ -40,20 +41,21 @@ public:
         }
         return le;
     }
-    bool check(vector<int>& nums, int target, int m) {
+    bool check(vector<int> &nums, int target, int m) {
         int count = 1, cur = 0;
         for (int i = 0; i < nums.size(); i++) {
             cur += nums[i];
             if (cur > target) {
                 count++;
                 cur = nums[i];
-                if (count > m) return false;
+                if (count > m)
+                    return false;
             }
         }
         return true;
     }
-    
-    bool check1(vector<int>& nums, int target, int m) {
+
+    bool check1(vector<int> &nums, int target, int m) {
         int count = 0, cur = 0;
         for (int i = 0; i < nums.size(); i++) {
             cur += nums[i];

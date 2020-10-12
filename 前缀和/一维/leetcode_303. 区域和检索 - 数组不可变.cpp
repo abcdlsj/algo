@@ -1,16 +1,14 @@
 class NumArray {
-public:
+  public:
     vector<int> preSum;
-    NumArray(vector<int>& nums) {
+    NumArray(vector<int> &nums) {
         preSum.push_back(0);
         for (int i = 0; i < nums.size(); i++) {
             preSum.push_back(preSum[i] + nums[i]);
         }
     }
-    
-    int sumRange(int i, int j) {
-        return preSum[j + 1] - preSum[i];
-    }
+
+    int sumRange(int i, int j) { return preSum[j + 1] - preSum[i]; }
 };
 
 /**

@@ -7,7 +7,8 @@ int main() {
 
     int M, N;
     while (cin >> N >> N) {
-        if (!N && !M) break;
+        if (!N && !M)
+            break;
         vector<vector<int>> G(N + 1, vector<int>(N + 1, INT_MAX));
         for (int i = 0; i < M; i++) {
             int a, b, c;

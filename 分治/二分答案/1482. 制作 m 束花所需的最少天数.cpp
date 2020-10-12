@@ -2,10 +2,12 @@
 using namespace std;
 
 class Solution {
-public:
-    int minDays(vector<int>& bloomDay, int m, int k) {
-        int n = bloomDay.size(), max_e = *max_element(bloomDay.begin(), bloomDay.end());
-        if (m * k > n) return -1;
+  public:
+    int minDays(vector<int> &bloomDay, int m, int k) {
+        int n = bloomDay.size(),
+            max_e = *max_element(bloomDay.begin(), bloomDay.end());
+        if (m * k > n)
+            return -1;
         int le = 0, ri = max_e;
 
         while (le < ri) {
@@ -20,11 +22,12 @@ public:
             }
         }
 
-        if (le == max_e && !check(bloomDay, max_e, m, k)) return -1;
+        if (le == max_e && !check(bloomDay, max_e, m, k))
+            return -1;
         return le;
     }
 
-    bool check(vector<int>& bloomDay, int day, int m, int k) {
+    bool check(vector<int> &bloomDay, int day, int m, int k) {
         int count = 0, cur = 0;
         for (int i = 0; i < bloomDay.size(); i++) {
             if (bloomDay[i] <= day) {
@@ -36,7 +39,8 @@ public:
                 count++;
                 cur = 0;
             }
-            if (count >= m) return true;
+            if (count >= m)
+                return true;
         }
 
         return false;

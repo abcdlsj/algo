@@ -8,7 +8,7 @@ struct DirectedGraphNode {
 };
 
 class Solution {
-   public:
+  public:
     /*
      * @param graph: A list of Directed graph node
      * @return: Any topological order for the given graph.

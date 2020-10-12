@@ -18,7 +18,7 @@ void topological_sort() {
         que.pop();
         ans.push_back(cur);
 
-        for (auto& e : edges[cur]) {
+        for (auto &e : edges[cur]) {
             indegree[e]--;
             if (indegree[e] == 0) {
                 que.push(e);

@@ -4,7 +4,7 @@ using namespace std;
 // Definition of SegmentTreeNode
 
 class SegmentTreeNode {
-   public:
+  public:
     int start, end, max;
     SegmentTreeNode *left, *right;
     SegmentTreeNode(int start, int end, int max) {
@@ -16,7 +16,7 @@ class SegmentTreeNode {
 };
 
 class Solution {
-   public:
+  public:
     /**
      * @param root: The root of segment tree.
      * @param start: start value.
@@ -25,7 +25,8 @@ class Solution {
      */
     int query(SegmentTreeNode *root, int start, int end) {
         // write your code here
-        if (root->start == start && root->end == end) return root->max;
+        if (root->start == start && root->end == end)
+            return root->max;
         int mid = (root->start + root->end) / 2, leftMax = INT_MIN,
             rightMax = INT_MIN;
         if (start <= mid) {

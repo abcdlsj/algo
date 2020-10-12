@@ -20,23 +20,25 @@ using namespace std;
 第1行：1个整数，表示砍树的最高高度。
 */
 
-bool check(vector<int>& heights, int h, int target) {
+bool check(vector<int> &heights, int h, int target) {
     int sum = 0;
 
     for (int i = 0; i < heights.size(); i++) {
         sum += (heights[i] > h ? heights[i] - h : 0);
-        if (sum >= target) return true;
+        if (sum >= target)
+            return true;
     }
     return false;
 }
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
+
     int M, N;
     while (cin >> N >> M) {
         vector<int> heights(N);
-        for (int i = 0; i < N; i++) cin >> heights[i];
+        for (int i = 0; i < N; i++)
+            cin >> heights[i];
 
         int le = 0, ri = *max_element(heights.begin(), heights.end());
         while (le < ri) {

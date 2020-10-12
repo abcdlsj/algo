@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void update(vector<int>& arr, int le, int ri) {
+void update(vector<int> &arr, int le, int ri) {
     arr[le] += 1;
     arr[ri + 1] -= 1;
 }
-int main () {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 

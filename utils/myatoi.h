@@ -2,11 +2,14 @@
 
 #include <string>
 int myatoi(std::string str) {
-    if (str.size() == 0) return 0;
+    if (str.size() == 0)
+        return 0;
     int ans = 0, idx = 0, bol = 1;
-    while (idx < str.size() && str[idx] == ' ') idx++;
+    while (idx < str.size() && str[idx] == ' ')
+        idx++;
     if (str[idx] == '-' || str[idx] == '+') {
-        if (str[idx++] == '-') bol = -1;
+        if (str[idx++] == '-')
+            bol = -1;
     }
     while (idx < str.size() && str[idx] >= '0' && str[idx] <= '9') {
         int cur = str[idx] - '0';
