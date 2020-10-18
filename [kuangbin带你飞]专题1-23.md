@@ -12,6 +12,50 @@ IndentWidth: 4
 ## 专题一 简单搜索
 
 [**POJ 1321**](https://vjudge.net/problem/POJ-1321) 棋盘问题
+
+``` cpp
+#include <iostream>
+using namespace std;
+
+int rows[10], n, k, ans;
+char board[10][10];
+
+void dfs(int step, int x) {
+    if (x == k) {
+        ans++;
+        return ;
+    }
+    if (step > n) {
+        return ;
+    }
+    for (int i = 0; i < n; ++i) {
+        if (board[step][i] == '#' && rows[i] == false) {
+            rows[i] = true;
+            dfs(step + 1, x + 1);
+            rows[i] = false;
+        }
+    }
+    dfs(step + 1, x);
+}
+
+int main() {
+    while (cin >> n >> k) {
+        if (n == -1 && k == -1) {
+            break;
+        }
+        ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cin >> board[i][j];
+            }
+        }
+        dfs(0, 0);
+        cout << ans << endl;
+    }
+    return 0;
+}
+```
+
 [**POJ 2251**](https://vjudge.net/problem/POJ-2251) Dungeon Master
 [**POJ 3278**](https://vjudge.net/problem/POJ-3278) Catch That Cow
 [**POJ 3279**](https://vjudge.net/problem/POJ-3279) Fliptile
