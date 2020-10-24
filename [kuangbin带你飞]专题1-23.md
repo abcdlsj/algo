@@ -137,7 +137,6 @@ int find(int x) {
     if (x != fa[x]) {
         fa[x] = find(fa[x]);
     }
-
     return fa[x];
 }
 
@@ -149,7 +148,7 @@ void unionset(int a, int b) {
         swap(x, y);
     }
     ra[y] += ra[x];
-    fa[x] = fa[y];
+    fa[x] = y;
     cnt--;
 }
 int main() {
@@ -219,7 +218,6 @@ int find(int x) {
     if (x != fa[x]) {
         fa[x] = find(fa[x]);
     }
-
     return fa[x];
 }
 
@@ -231,7 +229,7 @@ void unionset(int a, int b) {
         swap(x, y);
     }
     ra[y] += ra[x];
-    fa[x] = fa[y];
+    fa[x] = y;
     cnt--;
 }
 int main() {
@@ -275,23 +273,19 @@ int main() {
 using namespace std;
 
 int cnt;
-vector<int> father;
-vector<int> ranks;
-int findset(int x) {
-    if (x != father[x]) {
-        father[x] = findset(father[x]);
-    }
-    return father[x];
+vector<int> fa, ra;
+int find(int x) {
+    if (x != fa[x])
+        fa[x] = find(fa[x]);
+    return fa[x];
 }
 void unionset(int a, int b) {
-    int x = findset(a), y = findset(b);
+    int x = find(a), y = find(b);
     if (x == y)
         return;
-    if (ranks[x] > ranks[y]) {
+    if (ra[x] > ra[y])
         swap(x, y);
-    }
-    father[x] = y;
-    ranks[y] += ranks[x];
+    ra[y] += ra[x], fa[x] = y;
     cnt--;
 }
 
@@ -301,11 +295,11 @@ int main() {
     while (n--) {
         int N, M;
         cin >> N >> M;
-        father.resize(N + 1);
-        ranks.resize(N + 1, 1);
+        fa.resize(N + 1);
+        ra.resize(N + 1, 1);
         cnt = N;
         for (int i = 0; i <= N; i++)
-            father[i] = i;
+            fa[i] = i;
         for (int i = 0; i < M; i++) {
             int a, b;
             cin >> a >> b;

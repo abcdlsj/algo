@@ -22,7 +22,7 @@ void unionset(int a, int b) {
         swap(x, y);
     }
     ra[y] += ra[x];
-    fa[x] = fa[y];
+    fa[x] = y;
     cnt--;
 }
 int main() {

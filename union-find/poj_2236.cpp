@@ -11,7 +11,6 @@ int find(int x) {
     if (x != fa[x]) {
         fa[x] = find(fa[x]);
     }
-
     return fa[x];
 }
 
@@ -23,7 +22,7 @@ void unionset(int a, int b) {
         swap(x, y);
     }
     ra[y] += ra[x];
-    fa[x] = fa[y];
+    fa[x] = y;
     cnt--;
 }
 int main() {
