@@ -25,7 +25,7 @@ public:
         for (int i = 0; i < n; i += 2) {
             unionset(row[i] / 2, (row[i + 1]) / 2);
         }
-        return m - cnt; 
+        return m - cnt;
     }
 };
 

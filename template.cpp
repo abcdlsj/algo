@@ -14,6 +14,9 @@ static const auto io_sync_off = []() {
     return nullptr;
 }();
 
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define endl "\n"
+
 int cnt;
 int fa[MAX_N], ra[MAX_N];
 
