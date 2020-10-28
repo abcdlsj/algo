@@ -1,4 +1,3 @@
-#include "../../utils/print.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -76,10 +75,3 @@ class Solution2 {
         return dp.size();
     }
 };
-
-int main() {
-    Solution solution;
-    vector<int> arr = {4, 10, 4, 3, 8, 9};
-    // cout << lis_dp(arr) << endl;
-    cout << solution.lengthOfLIS(arr) << endl;
-}

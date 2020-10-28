@@ -30,11 +30,3 @@ class Solution {
         return dp[m][n];
     }
 };
-
-int main() {
-    Solution solution;
-    string word1 = "horse", word2 = "ros";
-    cout << solution.minDistance(word1, word2) << endl;
-
-    return 0;
-}

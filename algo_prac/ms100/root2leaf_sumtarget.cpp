@@ -1,6 +1,12 @@
-#include "../../utils/utils_tree.h"
 #include <bits/stdc++.h>
 using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
 class Solution {
   public:
@@ -22,23 +28,8 @@ class Solution {
         if (root->val == target && !root->left && !root->right) {
             ret.push_back(path);
         }
-
         helper(root->left, path, target - root->val);
         helper(root->right, path, target - root->val);
         path.pop_back();
     }
 };
-
-int main() {
-    Solution solution;
-    TreeNode *root =
-        TreeNode::deLevSerialize("5_4_8_11_#_13_4_7_2_#_#_#_#_5_1");
-    root->levelDisplay();
-    vector<vector<int>> res = solution.pathSum(root, 22);
-    for (auto vec : res) {
-        for (auto ele : vec) {
-            cout << ele << " ";
-        }
-        cout << "\n";
-    }
-}

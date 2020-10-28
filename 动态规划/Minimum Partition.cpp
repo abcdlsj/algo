@@ -50,8 +50,3 @@ int mininum_partition_dp(vector<int> &arr) {
 
     return sum;
 }
-
-int main() {
-    vector<int> arr = {1, 6, 11, 5};
-    cout << mininum_partition_dp(arr) << endl;
-}

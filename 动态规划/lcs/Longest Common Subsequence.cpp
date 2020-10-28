@@ -1,4 +1,3 @@
-#include "../utils/print.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -29,14 +28,5 @@ int lcs_dp(string s, string t) {
             }
         }
     }
-    print_vec(dp);
     return dp[m][n];
-}
-int main() {
-    string a = "AGGTAB", b = "GXTXAYB";
-    cout << a << " " << b << "\n" << lcs(a, b, a.size(), b.size()) << "\n";
-
-    cout << a << " " << b << "\n" << lcs_dp(a, b) << "\n";
-
-    return 0;
 }

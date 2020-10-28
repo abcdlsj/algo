@@ -1,4 +1,3 @@
-#include "../../utils/print.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,16 +23,4 @@ void reverse_stack(stack<int> &stk) {
     stk.pop();
     reverse_stack(stk);
     put(stk, tp);
-}
-
-int main() {
-    stack<int> stk;
-    stk.push(1);
-    stk.push(2);
-    stk.push(3);
-    stk.push(4);
-    print_stack(stk);
-    reverse_stack(stk);
-    print_stack(stk);
-    return 0;
 }
