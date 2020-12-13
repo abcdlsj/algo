@@ -6,7 +6,7 @@ public:
     bool possibleBipartition(int N, vector<vector<int>>& dislikes) {
         vector<vector<int>> G(N + 1);
         for (auto& e :  dislikes) {
-            int a = e[0], b = e[1];
+            int a= e[0], b = e[1];
             G[a].push_back(b);
             G[b].push_back(a);
         }
