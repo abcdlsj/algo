@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define MAX 100005
-
 using namespace std;
 
 vector<int> tree(MAX);

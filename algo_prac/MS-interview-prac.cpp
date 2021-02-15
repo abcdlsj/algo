@@ -10,24 +10,6 @@ using namespace std;
 // 条件2：如果该数组中可以找到一个连续的子数组使得反转这个子数组后整个数组变为升序，那么该条件满足。
 
 bool judge_arr(vector<int> arr) {
-    // 条件 1
-    // int le = -1, ri = -1;
-    // for (int i = 1; i < arr.size(); i++) {
-    //   if (arr[i - 1] > arr[i]) {
-    //     if (le == -1) {
-    //       le = i - 1;
-    //     } else if (ri == -1) {
-    //       ri = i;
-    //     } else {
-    //       return false;
-    //     }
-    //   }
-    // }
-
-    // swap(arr[le], arr[ri]);
-    // return is_sorted(arr.begin(), arr.end());
-
-    // 条件 2
     int le = -1, ri = -1;
 
     for (int i = 0; i < arr.size() - 1; i++) {

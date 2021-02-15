@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 207. 课程表
+// https://leetcode-cn.com/problems/course-schedule/
+// 测试通过
 class Solution {
   public:
     bool canFinish(int numCourses, vector<vector<int>> &prerequisites) {
